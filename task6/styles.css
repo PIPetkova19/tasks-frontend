@@ -23,7 +23,7 @@ body {
         "footer  footer";
     width: 100vw;
     gap: 10px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -47,14 +47,14 @@ body {
     grid-area: sidebar;
     background-color: var(--card-color);
     color: var(--text-color);
-    padding: 200px;
+    padding: 100px 20px;
 }
 
 .main {
     grid-area: content;
     background-color: var(--card-color);
     color: var(--text-color);
-    padding: 200px;
+    padding: 100px 20px;
 }
 
 .footer {
