@@ -1,0 +1,76 @@
+:root {
+    --bg-color: #d8cfcb;
+    --card-color: #efe7e2;
+    --text-color: #433b39;
+    --main-bg-color: #9d6b75;
+    --btn-color: #b88a94;
+    --footer-color: #6e565d;
+}
+
+body {
+    overflow: hidden;
+    background-color: var(--bg-color);
+    font-family: "Henny Penny", system-ui;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header  header"
+        "sidebar content"
+        "footer  footer";
+    width: 100vw;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header,
+.aside,
+.main,
+.footer {
+    border-radius: 20px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.header {
+    grid-area: header;
+    background-color: var(--main-bg-color);
+    color: #fff;
+    padding: 30px;
+}
+
+.aside {
+    grid-area: sidebar;
+    background-color: var(--card-color);
+    color: var(--text-color);
+    padding: 200px;
+}
+
+.main {
+    grid-area: content;
+    background-color: var(--card-color);
+    color: var(--text-color);
+    padding: 200px;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: var(--footer-color);
+    color: #f7f3f1;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+    .layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "content"
+            "footer";
+    }
+}

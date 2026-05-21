@@ -1,0 +1,103 @@
+:root {
+    --bg-color: #d8cfcb;
+    --main-bg-color: #eee6e2;
+    --text-color: #433b39;
+    --brand-color: #9d6b75;
+    --card-color: #f4ece8;
+    --btn-color: #8d626c;
+    --pro-color: #dbc7cd;
+}
+
+body {
+    background-color: var(--bg-color);
+    box-sizing: border-box;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    justify-content: space-between;
+    margin: 50px auto;
+    max-width: 1100px;
+    width: 100%;
+}
+
+
+.basic,
+.pro,
+.enterprise {
+    flex: 1;
+    background-color: var(--card-color);
+    border-radius: 20px;
+    padding: 60px 50px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.pro {
+    transform: scale(1.05);
+    border: solid var(--text-color);
+    background: var(--pro-color);
+}
+
+
+.cards li {
+    list-style: none;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--btn-color);
+
+}
+
+.prices {
+    font-size: large;
+    font-family: "Cormorant Garamond", serif;
+
+}
+
+button {
+    margin-top: 20px;
+    background: var(--btn-color);
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-family: "Crafty Girls", cursive;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.cards ul {
+    padding: 0;
+    margin-top: 50px;
+}
+
+h1,
+h2 {
+    font-family: "Henny Penny", system-ui;
+}
+
+.prices {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-color)
+}
+
+@media (max-width: 700px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+        max-width: 420px;
+    }
+
+    .basic,
+    .pro,
+    .enterprise {
+        padding: 20px 100px;
+    }
+}

@@ -1,0 +1,104 @@
+:root {
+    --bg-color: #d8cfcb;
+    --main-bg-color: #eee6e2;
+    --text-color: #3d3533;
+    --brand-color: #9d6b75;
+    --navbar-color: #7d5a63;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin: 0;
+    font-family: "Cormorant Garamond", serif;
+}
+
+li,
+p {
+    font-family: "Crafty Girls", cursive;
+}
+
+h1,
+h2 {
+    font-family: "Henny Penny", system-ui;
+}
+
+header {
+    width: 100%;
+}
+
+main {
+    border-radius: 20px;
+    background-color: var(--main-bg-color);
+    max-width: 400px;
+    width: 100%;
+    padding: 100px 15px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 10px 30px;
+}
+
+li {
+    cursor: pointer;
+}
+
+.skills-list {
+    text-align: left;
+
+}
+
+.navbar {
+    width: 100%;
+
+}
+
+.navbar-list {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 10px 50px;
+    gap: 15px;
+    background-color: var(--main-bg-color);
+    box-sizing: border-box;
+    background-color: var(--navbar-color);
+
+}
+
+.navbar-list>li:nth-child(1) {
+    margin-right: auto;
+}
+
+
+.navbar-list>li {
+    list-style: none;
+}
+
+.navbar-list a {
+    text-decoration: none;
+    color: #f8f4f2;
+}
+
+.navbar-list a:hover {
+    color: #f2d0d7;
+    font-weight: 700;
+}
+
+.skills-list>li:hover {
+    color: #000000;
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+
+    .navbar-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .navbar-list>li:nth-child(1) {
+        margin-right: 0;
+    }
+}
