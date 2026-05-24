@@ -1,0 +1,10 @@
+<ul>
+    <li>Name: {{name}}</li>
+    <li>Role: {{role}}</li>
+    <li>Skills:</li>
+    <ul>
+        @for(skill of skills; track skill){
+        <li>{{skill}}</li>
+        }
+    </ul>
+</ul>
