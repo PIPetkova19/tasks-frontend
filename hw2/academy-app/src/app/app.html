@@ -1,17 +1,10 @@
-<label for="inputName">Search by name </label>
-<input type="text" name="inputName" [(ngModel)]="searchTerm">
-
-@if(filterStudents(searchTerm)){
-<app-student-card *ngFor="let student of filterStudents(searchTerm)" 
-(removed)="remove($event)"
-[name]="student.name" 
-[role]="student.role"
-[skills]="student.skills" 
-[description]="student.description">
-</app-student-card>
-}
-@if(filterStudents(searchTerm).length===0){
-<p>No students found</p>
-}
-
+<ul>
+  <li>Course Name: {{courseName}}</li>
+  <li>Instructor Name: {{instructorName}}</li>
+  <li>Current Year: {{currentYear}}</li>
+  <li>Topics:</li>
+  <ul>
+    <li *ngFor="let topic of topics">{{topic}}</li>
+  </ul>
+</ul>
 <router-outlet />

@@ -1,58 +1,24 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { StudentCard } from './components/student-card/student-card';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, StudentCard, CommonModule, FormsModule],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 
 export class App {
   protected readonly title = signal('academy-app');
-  students = [
-    {
-      name: 'Petya',
-      role: 'Intern',
-      skills: ['Html', 'Css', 'Js'],
-      description: 'intern at dreamix'
-    },
-    {
-      name: 'Rado',
-      role: 'Intern',
-      skills: ['Html', 'Css', 'Js'],
-      description: 'intern at scalefocus'
-    },
-    {
-      name: 'Mimi',
-      role: 'Intern',
-      skills: ['Html', 'Css', 'Js'],
-      description: 'student'
-    },
-    {
-      name: 'Petya',
-      role: 'Intern',
-      skills: ['Html', 'Css', 'Js'],
-      description: 'intern at dreamix'
-    },
-    {
-      name: 'Petya',
-      role: 'Intern',
-      skills: ['Html', 'Css', 'Js'],
-      description: 'intern at dreamix'
-    }
-  ];
 
-  searchTerm: string = '';
+  courseName: string = 'Java';
+  instructorName: string = 'Petya';
+  currentYear: string = '2026';
 
-  filterStudents(searchTerm: string) {
-    return this.students.filter((student) => student.name.toLowerCase() === searchTerm.toLowerCase());
-  }
-
-  remove(name: string) {
-    this.students = this.students.filter((student) => student.name !== name);
-  }
+  topics: string[] = [
+    "topic 1",
+    "topic 2",
+    "topic 3"
+  ]
 }
