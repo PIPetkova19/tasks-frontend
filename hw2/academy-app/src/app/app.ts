@@ -17,27 +17,32 @@ export class App {
     {
       name: 'Petya',
       role: 'Intern',
-      skills: ['Html', 'Css', 'Js']
+      skills: ['Html', 'Css', 'Js'],
+      description: 'intern at dreamix'
     },
     {
       name: 'Rado',
       role: 'Intern',
-      skills: ['Html', 'Css', 'Js']
+      skills: ['Html', 'Css', 'Js'],
+      description: 'intern at scalefocus'
     },
     {
       name: 'Mimi',
       role: 'Intern',
-      skills: ['Html', 'Css', 'Js']
+      skills: ['Html', 'Css', 'Js'],
+      description: 'student'
     },
     {
       name: 'Petya',
       role: 'Intern',
-      skills: ['Html', 'Css', 'Js']
+      skills: ['Html', 'Css', 'Js'],
+      description: 'intern at dreamix'
     },
     {
       name: 'Petya',
       role: 'Intern',
-      skills: ['Html', 'Css', 'Js']
+      skills: ['Html', 'Css', 'Js'],
+      description: 'intern at dreamix'
     }
   ];
 
@@ -45,5 +50,9 @@ export class App {
 
   filterStudents(searchTerm: string) {
     return this.students.filter((student) => student.name.toLowerCase() === searchTerm.toLowerCase());
+  }
+
+  remove(name: string) {
+    this.students = this.students.filter((student) => student.name !== name);
   }
 }

@@ -9,3 +9,8 @@
     </ul>
 </ul>
 
+<button (click)="toggleButton()">{{showDesc ? 'Hide Details' : 'Show Details'}}</button>
+
+<p *ngIf="showDesc">Description: {{description}}</p>
+
+<button (click)="removeStudent()">Remove</button>
