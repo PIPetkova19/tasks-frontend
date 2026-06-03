@@ -49,6 +49,7 @@ export class App {
   searchTerm: string = '';
 
   filterStudents(searchTerm: string) {
+    console.log("neshto"); //!
     return this.students.filter((student) => student.name.toLowerCase() === searchTerm.toLowerCase());
   }
 
