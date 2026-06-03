@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, computed } from '@angular/core';
 
 @Component({
   selector: 'app-counter',
@@ -8,17 +8,31 @@ import { Component } from '@angular/core';
 })
 
 export class AppCounter {
-  counter: number = 0;
-
+  counter = signal<number>(0);
+  status = computed(() => {
+    if (this.counter() < 3) {
+      return "Low";
+    }
+    else if (this.counter() <= 6) {
+      return "Medium";
+    }
+    else {
+      return "High";
+    }
+  });
   increase() {
-    if (this.counter < 10) this.counter++;
+    if (this.counter() < 10) {
+      this.counter.update(c => c + 1);
+    }
   }
 
   decrease() {
-    if (this.counter > 0) this.counter--;
+    if (this.counter() > 0) {
+      this.counter.update(c => c - 1);
+    }
   }
 
   reset() {
-    this.counter = 0;
+    this.counter.set(0);
   }
 }
