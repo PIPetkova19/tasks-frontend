@@ -1,0 +1,30 @@
+<table>
+    <caption>
+        Students list
+    </caption>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Major</th>
+            <th>Grade</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(student of students; track student.id){
+        <tr>
+            <td>{{ student.name }}</td>
+            <td>{{ student.major }}</td>
+            <td [ngClass]="{'honor':student.grade === Grades.A}">{{ student.grade }}</td>
+        </tr>
+        }
+        @empty{
+        <td>No students found</td>
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>Count: {{students.length}}</td>
+        </tr>
+    </tfoot>
+</table>
