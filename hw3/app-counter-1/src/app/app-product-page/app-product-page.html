@@ -1,0 +1,6 @@
+<h1>Products</h1>
+<h2>Cart ({{ cart().length }} items)</h2>
+
+@for (product of products; track product.id) {
+<app-product-card [product]="product" (addToCart)="onAdd($event)"></app-product-card>
+}
