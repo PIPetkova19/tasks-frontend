@@ -1,0 +1,55 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label for="teamName">Team Name:</label><br>
+    <input formControlName="teamName" id="teamName" type="text" placeholder="Team name" />
+    @if (form.get('teamName')?.invalid && form.get('teamName')?.touched) {
+    <p style="color:red">Team name is required</p>
+    }
+    <div formArrayName="members">
+        @for (ctrl of members.controls; track $index; let i = $index){
+        <div [formGroupName]="i">
+            <label for="name">Name: </label><br>
+            <input formControlName="name" id="name" placeholder="Name" />
+            @if (ctrl.get('name')?.invalid &&
+            ctrl.get('name')?.touched) {
+            <p style="color:red">Name is required</p>
+            }
+            <br>
+            <label for="role">Role:</label><br>
+            <select id="role" formControlName="role">
+                <option value="">Select role</option>
+                @for (role of roles; track role) {
+                <option [value]="role">{{ role }}</option>
+                }
+            </select>
+
+            @if (ctrl.get('role')?.invalid && ctrl.get('role')?.touched) {
+            <p style="color:red">Role is required</p>
+            }
+            <br>
+            <button type="button" (click)="removeMember(i)" [disabled]="members.length === 1">
+                Remove
+            </button>
+            <br>
+
+
+        </div>
+        }
+    </div>
+
+    <button type="button" (click)="addMember()" [disabled]="members.length >= 5">+ Add Member</button>
+    <br>
+
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+    <br>
+</form>
+
+@if (submittedTeam) {
+<div class="summary">
+    <h3>Team: {{ submittedTeam.teamName }}</h3>
+    <ul>
+        @for (m of submittedTeam.members; track m.name) {
+        <li>{{ m.name }} — {{ m.role }}</li>
+        }
+    </ul>
+</div>
+}
