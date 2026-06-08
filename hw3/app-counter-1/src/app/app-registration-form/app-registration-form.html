@@ -1,0 +1,99 @@
+<div class="container">
+    <h1 class="heading">Reactive Form</h1>
+    <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" formControlName="username">
+            @if (userForm.get('username')?.touched) {
+
+            @if (userForm.get('username')?.errors?.['required']) {
+            <div class="text-danger">Username is required.</div>
+            }
+
+            @if (userForm.get('username')?.errors?.['minlength']) {
+            <div class="text-danger">Minimum 3 characters.</div>
+            }
+
+            @if (userForm.get('username')?.errors?.['maxlength']) {
+            <div class="text-danger">Maximum 15 characters.</div>
+            }
+
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+            @if (userForm.get('email')?.touched) {
+
+            @if (userForm.get('email')?.errors?.['required']) {
+            <div class="text-danger">Email is required.</div>
+            }
+
+            @if (userForm.get('email')?.errors?.['email']) {
+            <div class="text-danger">Email should be valid format.</div>
+            }
+
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" class="form-control" id="age" formControlName="age">
+            @if (userForm.get('age')?.touched) {
+
+            @if (userForm.get('age')?.errors?.['required']) {
+            <div class="text-danger">Age is required.</div>
+            }
+            @if (
+            userForm.get('age')?.errors?.['min'] ||
+            userForm.get('age')?.errors?.['max']
+            ) {
+            <div class="text-danger">
+                Age must be between 18 and 99.
+            </div>
+            }
+
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password">
+            @if (userForm.get('password')?.touched) {
+            @if (userForm.get('password')?.errors?.['required']) {
+            <div class="text-danger">Password is required.</div>
+            }
+            @if (userForm.get('password')?.errors?.['minlength']) {
+            <div class="text-danger">Password must be atleast 8 chars.</div>
+            }
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="password">Confirm Password</label>
+            <input type="password" class="form-control" id="confirm-password" formControlName="confirmPassword">
+            @if (userForm.get('confirmPassword')?.touched) {
+            @if (userForm.get('confirmPassword')?.errors?.['required']) {
+            <div class="text-danger">Password is required.</div>
+            }
+            }
+        </div>
+
+        @if (
+        userForm.errors?.['mismatch'] &&
+        !userForm.get('confirmPassword')?.errors?.['required']
+        ) {
+        <div class="text-danger">
+            Passwords must match.
+        </div>
+        }
+
+        <button type="submit" [disabled]="userForm.invalid">Submit</button>
+    </form>
+</div>
+
+@if (successMsg) {
+<p class="text-success">Welcome, {{ successMsg }}!</p>
+}
