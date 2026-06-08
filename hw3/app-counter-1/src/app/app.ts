@@ -5,12 +5,14 @@ import { AppStudentList } from './app-student-list/app-student-list';
 import { AppProductCard } from './app-product-card/app-product-card';
 import { AppProductPage } from './app-product-page/app-product-page';
 import { AppRegistrationForm } from './app-registration-form/app-registration-form';
+import { AppListPeople } from './app-list-people/app-list-people';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
-  imports: [RouterOutlet, AppCounter, AppStudentList,AppProductCard,AppProductPage,AppRegistrationForm]
+  imports: [RouterOutlet, AppCounter, AppStudentList, AppProductCard,
+    AppProductPage, AppRegistrationForm, AppListPeople]
 })
 export class App {
   protected readonly title = signal('app-counter-1');

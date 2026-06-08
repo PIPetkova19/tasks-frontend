@@ -1,0 +1,10 @@
+<h1>List of people</h1>
+<ul>
+    @for (person of people; track person) {
+    <li>
+        {{ person }}
+        - <strong>{{ person | initials }}</strong>
+        - <strong>{{ person | initials:'-' }}</strong>
+    </li>
+    }
+</ul>
