@@ -1,99 +1,92 @@
 <div class="container">
-    <h1 class="heading">Reactive Form</h1>
+    <h1>Reactive Form</h1>
+
     <form [formGroup]="userForm" (ngSubmit)="submitForm()">
 
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" formControlName="username">
-            @if (userForm.get('username')?.touched) {
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username">
+        </mat-form-field>
+        @if (userForm.get('username')?.touched) {
+        @if (userForm.get('username')?.errors?.['required']) {
+        <mat-error>Username is required.</mat-error>
+        }
+        @if (userForm.get('username')?.errors?.['minlength']) {
+        <mat-error>Minimum 3 characters.</mat-error>
+        }
+        @if (userForm.get('username')?.errors?.['maxlength']) {
+        <mat-error>Maximum 15 characters.</mat-error>
+        }
+        }
 
-            @if (userForm.get('username')?.errors?.['required']) {
-            <div class="text-danger">Username is required.</div>
-            }
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email">
+        </mat-form-field>
+        @if (userForm.get('email')?.touched) {
+        @if (userForm.get('email')?.errors?.['required']) {
+        <mat-error>Email is required.</mat-error>
+        }
+        @if (userForm.get('email')?.errors?.['email']) {
+        <mat-error>Email should be valid format.</mat-error>
+        }
+        }
 
-            @if (userForm.get('username')?.errors?.['minlength']) {
-            <div class="text-danger">Minimum 3 characters.</div>
-            }
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Age</mat-label>
+            <input matInput type="number" formControlName="age">
+        </mat-form-field>
+        @if (userForm.get('age')?.touched) {
+        @if (userForm.get('age')?.errors?.['required']) {
+        <mat-error>Age is required.</mat-error>
+        }
+        @if (
+        userForm.get('age')?.errors?.['min'] ||
+        userForm.get('age')?.errors?.['max']
+        ) {
+        <mat-error>Age must be between 18 and 99.</mat-error>
+        }
+        }
 
-            @if (userForm.get('username')?.errors?.['maxlength']) {
-            <div class="text-danger">Maximum 15 characters.</div>
-            }
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password">
+        </mat-form-field>
+        @if (userForm.get('password')?.touched) {
+        @if (userForm.get('password')?.errors?.['required']) {
+        <mat-error>Password is required.</mat-error>
+        }
+        @if (userForm.get('password')?.errors?.['minlength']) {
+        <mat-error>Password must be at least 8 chars.</mat-error>
+        }
+        }
 
-            }
-        </div>
-
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" formControlName="email">
-            @if (userForm.get('email')?.touched) {
-
-            @if (userForm.get('email')?.errors?.['required']) {
-            <div class="text-danger">Email is required.</div>
-            }
-
-            @if (userForm.get('email')?.errors?.['email']) {
-            <div class="text-danger">Email should be valid format.</div>
-            }
-
-            }
-        </div>
-
-        <div class="form-group">
-            <label for="age">Age</label>
-            <input type="number" class="form-control" id="age" formControlName="age">
-            @if (userForm.get('age')?.touched) {
-
-            @if (userForm.get('age')?.errors?.['required']) {
-            <div class="text-danger">Age is required.</div>
-            }
-            @if (
-            userForm.get('age')?.errors?.['min'] ||
-            userForm.get('age')?.errors?.['max']
-            ) {
-            <div class="text-danger">
-                Age must be between 18 and 99.
-            </div>
-            }
-
-            }
-        </div>
-
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" formControlName="password">
-            @if (userForm.get('password')?.touched) {
-            @if (userForm.get('password')?.errors?.['required']) {
-            <div class="text-danger">Password is required.</div>
-            }
-            @if (userForm.get('password')?.errors?.['minlength']) {
-            <div class="text-danger">Password must be atleast 8 chars.</div>
-            }
-            }
-        </div>
-
-        <div class="form-group">
-            <label for="password">Confirm Password</label>
-            <input type="password" class="form-control" id="confirm-password" formControlName="confirmPassword">
-            @if (userForm.get('confirmPassword')?.touched) {
-            @if (userForm.get('confirmPassword')?.errors?.['required']) {
-            <div class="text-danger">Password is required.</div>
-            }
-            }
-        </div>
-
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" formControlName="confirmPassword">
+        </mat-form-field>
+        @if (userForm.get('confirmPassword')?.touched) {
+        @if (userForm.get('confirmPassword')?.errors?.['required']) {
+        <mat-error>Confirm password is required.</mat-error>
+        }
+        }
         @if (
         userForm.errors?.['mismatch'] &&
         !userForm.get('confirmPassword')?.errors?.['required']
         ) {
-        <div class="text-danger">
+        <mat-error>
             Passwords must match.
-        </div>
+        </mat-error>
         }
 
-        <button type="submit" [disabled]="userForm.invalid">Submit</button>
+        <button type="submit" [disabled]="userForm.invalid" matButton="elevated">
+            Submit
+        </button>
     </form>
 </div>
 
 @if (successMsg) {
-<p class="text-success">Welcome, {{ successMsg }}!</p>
+<p class="text-success">
+    Welcome, <strong>{{ successMsg }}</strong>!
+</p>
 }

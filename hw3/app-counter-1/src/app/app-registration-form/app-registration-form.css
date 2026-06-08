@@ -1,7 +1,28 @@
+h1{
+    text-align: center;
+}
+
 .text-danger{
     color:red;
 }
 
 .text-success{
     color:green;
+    text-align: center;
+    font-size: large;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }

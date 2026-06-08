@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators, AbstractControl, ValidationErrors, FormGroup } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-registration-form',
-  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './app-registration-form.html',
   styleUrl: './app-registration-form.css',
+  imports: [ReactiveFormsModule, CommonModule, MatFormFieldModule, MatInputModule,
+    MatButtonModule
+  ],
 })
 
 export class AppRegistrationForm {
