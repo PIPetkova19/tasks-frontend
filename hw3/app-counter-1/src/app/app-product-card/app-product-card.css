@@ -1,0 +1,21 @@
+section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.list-items {
+    text-align: center;
+    padding: 1.5%;
+}
+
+button {
+    width: 15%;
+    align-self: center;
+    margin-bottom: 2%;
+}
+
+.bolder{
+    font-weight: 700;
+}

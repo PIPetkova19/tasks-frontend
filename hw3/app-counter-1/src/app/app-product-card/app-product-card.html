@@ -1,8 +1,14 @@
-<ul>
-    <li>{{product().name}}</li>
-    <li>{{product().price | currencyPipe}}</li>
-    <li>{{ product().inStock ? 'In Stock' : 'Out of Stock' }}</li>
+<section>
+    <mat-list role="list" class="list">
+        <mat-list-item role="listitem" class="list-items">{{product().name}}</mat-list-item>
+        <mat-list-item role="listitem" class="list-items">{{product().price | currencyPipe}}</mat-list-item>
+        <mat-list-item role="listitem" class="list-items">
+            <p class="bolder">{{ product().inStock ? 'In Stock' : 'Out of Stock'
+                }}</p>
+        </mat-list-item>
+    </mat-list>
 
-</ul>
-
-<button (click)="addToCart.emit(product())" [disabled]="product().inStock===false">Add to Cart</button>
+    <button (click)="addToCart.emit(product())" [disabled]="product().inStock===false" matButton="elevated">
+        Add to Cart
+    </button>
+</section>

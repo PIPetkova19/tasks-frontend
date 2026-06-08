@@ -1,6 +1,9 @@
-<h1>Products</h1>
-<h2>Cart ({{ cart().length }} items)</h2>
+<section>
+    <h1>Products</h1>
+    <p class="text">Cart (<strong>{{ cart().length }} </strong>items)</p>
 
-@for (product of products; track product.id) {
-<app-product-card [product]="product" (addToCart)="onAdd($event)"></app-product-card>
-}
+    @for (product of products; track product.id) {
+    <app-product-card [product]="product" (addToCart)="onAdd($event)"></app-product-card>
+    <mat-divider></mat-divider>
+    }
+</section>
