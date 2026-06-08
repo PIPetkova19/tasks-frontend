@@ -1,6 +1,10 @@
-<input [(ngModel)]="password" type="password" placeholder="Enter password">
-<button (click)="onLogin()">Login</button>
+<section>
+    <mat-form-field appearance="outline">
+        <mat-label>Enter password</mat-label>
+        <input matInput [(ngModel)]="password" type="password" placeholder="password...">
+    </mat-form-field> <button (click)="onLogin()" matButton="elevated">Login</button>
 
-@if(error()){
-<p style="color:red">Incorrect password</p>
-}
+    @if(error()){
+    <p style="color:red">Incorrect password</p>
+    }
+</section>
