@@ -1,10 +1,13 @@
-<h1>List of people</h1>
-<ul>
-    @for (person of people; track person) {
-    <li>
-        {{ person }}
-        - <strong>{{ person | initials }}</strong>
-        - <strong>{{ person | initials:'-' }}</strong>
-    </li>
-    }
-</ul>
+<section>
+    <h1> Exercise 6 — Custom Pipe</h1>
+    <mat-list role="list">
+        @for (person of people; track person) {
+        <mat-list-item role="listitem">
+            {{ person }}
+            - <strong>{{ person | initials }}</strong>
+            - <strong>{{ person | initials:'-' }}</strong>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        }
+    </mat-list>
+</section>
