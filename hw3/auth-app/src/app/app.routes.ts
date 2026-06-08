@@ -1,0 +1,10 @@
+import { Routes } from '@angular/router';
+import { LoginComponent } from './components/login-component/login-component';
+import { DashboardComponent } from './components/dashboard-component/dashboard-component';
+import { authGuard } from './common/auth-guard';
+
+export const routes: Routes = [
+    { path: '', component: DashboardComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'dashboard', component: DashboardComponent, canActivate:[authGuard] },
+];

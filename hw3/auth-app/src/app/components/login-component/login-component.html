@@ -1,0 +1,6 @@
+<input [(ngModel)]="password" type="password" placeholder="Enter password">
+<button (click)="onLogin()">Login</button>
+
+@if(error()){
+<p style="color:red">Incorrect password</p>
+}
