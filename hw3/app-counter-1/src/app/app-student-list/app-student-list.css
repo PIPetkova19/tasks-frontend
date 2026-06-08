@@ -1,3 +1,12 @@
-.honor{
-    color:red;
+.honor {
+    color: red;
+}
+
+h1 {
+    text-align: center;
+}
+
+.text {
+    text-align: center;
+    font-size: large;
 }

@@ -1,10 +1,10 @@
 <section>
 
     <h1>Exercise 1 — Counter Component</h1>
-    {{counter()}}
+    <p class="text">{{counter()}}</p>
 
     @if(counter()>=10){
-    <p>Maximum reached</p>
+    <p class="text">Maximum reached</p>
     }
 
     <div class="example-button-row">
@@ -13,6 +13,6 @@
         <button (click)="reset()" matButton="elevated">Reset</button>
     </div>
 
-    <p>Status: <strong>{{ status() }}</strong></p>
+    <p class="text">Status: <strong>{{ status() }}</strong></p>
 
 </section>

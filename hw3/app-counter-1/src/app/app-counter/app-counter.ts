@@ -1,11 +1,11 @@
 import { Component, signal, computed } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-counter',
-  imports: [MatButtonModule],
   templateUrl: './app-counter.html',
   styleUrl: './app-counter.css',
+  imports: [MatButtonModule]
 })
 
 export class AppCounter {
