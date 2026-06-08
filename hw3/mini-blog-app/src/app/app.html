@@ -1,7 +1,7 @@
-<nav>
-  <ul>
-    <li> <a routerLink="/">Home</a></li>
-    <li> <a routerLink="/postList">Post List</a></li>
-  </ul>
-</nav>
+<button matButton [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/">Home</button>
+  <button mat-menu-item routerLink="/postList">Post List</button>
+</mat-menu>
+
 <router-outlet />

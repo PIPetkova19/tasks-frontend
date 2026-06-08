@@ -1,8 +1,12 @@
-<h1>List of posts</h1>
-<ul>
-    @for(post of posts; track post.id){
-    <li> Title: {{post.title}} | Author: {{post.author}} |
-        <a [routerLink]="['/postDetail', post.id]">Details</a>
-    </li>
-    }
-</ul>
+<section>
+    <h1>List of posts</h1>
+    <mat-list role="list">
+        @for(post of posts; track post.id){
+        <mat-list-item role="listitem">
+            <strong>Title:</strong> {{post.title}} | <strong>Author:</strong> {{post.author}} |
+            <a [routerLink]="['/postDetail', post.id]" matButton="outlined">Details</a>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        }
+    </mat-list>
+</section>

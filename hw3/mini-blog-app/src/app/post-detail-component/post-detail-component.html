@@ -1,9 +1,20 @@
-@if (post) {
-<h1>Post details</h1>
-<p>Id: {{ post.id }}</p>
-<p>Author: {{ post.author }}</p>
-<p>Title: {{post.title}}</p>
-<a routerLink="/postList">← Back to Posts</a>
-} @else {
-<p>Post not found.</p>
-}
+<section>
+    @if (post) {
+    <h1>Post details</h1>
+    <mat-list role="list">
+        <mat-list-item role="listitem"><strong>Id:</strong> {{ post.id }}</mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item role="listitem"><strong>Author:</strong> {{ post.author }}</mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item role="listitem"><strong>Title:</strong> {{post.title}}</mat-list-item>
+        <mat-divider></mat-divider>
+
+    </mat-list>
+
+    <a routerLink="/postList" matButton="outlined">Back to Posts</a>
+    } @else {
+    <p>Post not found.</p>
+    }
+</section>
