@@ -1,0 +1,15 @@
+<input type="text" id="name" [formControl]="searchControl" />
+
+@if (errorMsg) {
+<p style="color:red">{{ errorMsg }}</p>
+}
+@if(!(filteredUsers$ | async)){
+<p>Loading users...</p>
+}@else{
+<ul>
+    @for(user of (filteredUsers$ | async) ?? []; track user.id)
+    {
+         <li>{{user.name}} {{ user.email}}</li>
+    }
+</ul>
+}
