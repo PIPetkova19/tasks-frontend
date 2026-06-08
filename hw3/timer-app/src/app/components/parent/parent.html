@@ -1,0 +1,13 @@
+  <button (click)="show.set(!show())">
+      {{ show() ? 'Destroy Timer' : 'Create Timer' }}
+    </button>
+
+    <div>
+      <label for="intervalMs">Interval (ms): </label>
+      <input type="number" id="intervalMs" [(ngModel)]="intervalMs" min="100" step="100" />
+    </div>
+
+    @if (show()) {
+      <app-timer [interval]="intervalMs"></app-timer>
+    }
+ 
