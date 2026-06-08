@@ -1,55 +1,90 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <label for="teamName">Team Name:</label><br>
-    <input formControlName="teamName" id="teamName" type="text" placeholder="Team name" />
-    @if (form.get('teamName')?.invalid && form.get('teamName')?.touched) {
-    <p style="color:red">Team name is required</p>
-    }
-    <div formArrayName="members">
-        @for (ctrl of members.controls; track $index; let i = $index){
-        <div [formGroupName]="i">
-            <label for="name">Name: </label><br>
-            <input formControlName="name" id="name" placeholder="Name" />
-            @if (ctrl.get('name')?.invalid &&
-            ctrl.get('name')?.touched) {
-            <p style="color:red">Name is required</p>
-            }
-            <br>
-            <label for="role">Role:</label><br>
-            <select id="role" formControlName="role">
-                <option value="">Select role</option>
-                @for (role of roles; track role) {
-                <option [value]="role">{{ role }}</option>
-                }
-            </select>
+<section>
+    <h1>Exercise 10 — Dynamic Form with FormArray</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-            @if (ctrl.get('role')?.invalid && ctrl.get('role')?.touched) {
-            <p style="color:red">Role is required</p>
-            }
-            <br>
-            <button type="button" (click)="removeMember(i)" [disabled]="members.length === 1">
-                Remove
-            </button>
-            <br>
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Team Name</mat-label>
+            <input matInput formControlName="teamName">
 
+            @if (form.get('teamName')?.invalid && form.get('teamName')?.touched) {
+            <mat-error>Team name is required</mat-error>
+            }
+        </mat-form-field>
+
+        <div formArrayName="members">
+
+            @for (ctrl of members.controls; track $index; let i = $index) {
+
+            <div [formGroupName]="i" class="member-card">
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name">
+
+                    @if (ctrl.get('name')?.invalid && ctrl.get('name')?.touched) {
+                    <mat-error>Name is required</mat-error>
+                    }
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Role</mat-label>
+
+                    <mat-select formControlName="role">
+                        <mat-option value="">Select role</mat-option>
+
+                        @for (role of roles; track role) {
+                        <mat-option [value]="role">
+                            {{ role }}
+                        </mat-option>
+                        }
+
+                    </mat-select>
+
+                    @if (ctrl.get('role')?.invalid && ctrl.get('role')?.touched) {
+                    <mat-error>Role is required</mat-error>
+                    }
+
+                </mat-form-field>
+
+                <button mat-stroked-button color="warn" type="button" (click)="removeMember(i)"
+                    [disabled]="members.length === 1">
+                    Remove
+                </button>
+
+            </div>
+            <mat-divider></mat-divider>
+            }
 
         </div>
-        }
-    </div>
 
-    <button type="button" (click)="addMember()" [disabled]="members.length >= 5">+ Add Member</button>
-    <br>
+        <button mat-raised-button color="primary" type="button" (click)="addMember()" [disabled]="members.length >= 5">
+            Add Member
+        </button>
 
-    <button type="submit" [disabled]="form.invalid">Submit</button>
-    <br>
-</form>
+        <br><br>
 
-@if (submittedTeam) {
-<div class="summary">
-    <h3>Team: {{ submittedTeam.teamName }}</h3>
-    <ul>
-        @for (m of submittedTeam.members; track m.name) {
-        <li>{{ m.name }} — {{ m.role }}</li>
-        }
-    </ul>
-</div>
-}
+        <button mat-raised-button color="accent" type="submit" [disabled]="form.invalid">
+            Submit
+        </button>
+
+    </form>
+
+
+    @if (submittedTeam) {
+    <mat-card class="summary">
+
+        <mat-card-title>
+            Team: {{ submittedTeam.teamName }}
+        </mat-card-title>
+
+        <mat-card-content>
+            <ul>
+                @for (m of submittedTeam.members; track m.name) {
+                <li><strong>Name: </strong>{{ m.name }} | <strong>Role: </strong>{{ m.role }}</li>
+                }
+            </ul>
+        </mat-card-content>
+
+    </mat-card>
+    }
+</section>

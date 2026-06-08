@@ -1,12 +1,21 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormArray, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-form-array',
-  imports: [ReactiveFormsModule],
   templateUrl: './form-array.html',
   styleUrl: './form-array.css',
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatSelectModule,
+    MatButtonModule, MatDividerModule, MatCardModule
+  ],
+
 })
 
 export class FormArrayComponent {
