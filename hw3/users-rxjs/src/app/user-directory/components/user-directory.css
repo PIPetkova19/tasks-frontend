@@ -1,0 +1,19 @@
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+mat-list {
+    width: 100%;
+}
+
+mat-divider {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 5%;
+}

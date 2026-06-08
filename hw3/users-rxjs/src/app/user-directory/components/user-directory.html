@@ -1,15 +1,23 @@
-<input type="text" id="name" [formControl]="searchControl" />
+<section>
+    <h1>Exercise 8 — HTTP Service with RxJS</h1>
+    <mat-form-field appearance="outline">
+        <mat-label>Enter name: </mat-label>
+        <input matInput type="text" id="name" [formControl]="searchControl" placeholder="name...">
+    </mat-form-field>
 
-@if (errorMsg) {
-<p style="color:red">{{ errorMsg }}</p>
-}
-@if(!(filteredUsers$ | async)){
-<p>Loading users...</p>
-}@else{
-<ul>
-    @for(user of (filteredUsers$ | async) ?? []; track user.id)
-    {
-         <li>{{user.name}} {{ user.email}}</li>
+    @if (errorMsg) {
+    <p style="color:red">{{ errorMsg }}</p>
     }
-</ul>
-}
+    @if(!(filteredUsers$ | async)){
+    <p>Loading users...</p>
+    }@else{
+    <mat-list role="list">
+        @for(user of (filteredUsers$ | async) ?? []; track user.id)
+        {
+        <mat-list-item role="listitem"><strong>Name: </strong>{{user.name}} |
+            <strong>Email: </strong>{{ user.email}}</mat-list-item>
+        <mat-divider></mat-divider>
+        }
+    </mat-list>
+    }
+</section>

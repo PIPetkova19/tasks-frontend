@@ -7,13 +7,18 @@ import { inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OnInit } from '@angular/core';
+import { MatListModule } from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-user-directory',
   templateUrl: './user-directory.html',
   styleUrl: './user-directory.css',
-  imports: [CommonModule, ReactiveFormsModule]
+  imports: [CommonModule, ReactiveFormsModule, MatListModule,
+    MatFormFieldModule, MatInputModule]
 })
+
 export class UserDirectoryComponent implements OnInit {
   searchControl = new FormControl('');
   errorMsg: string = '';
