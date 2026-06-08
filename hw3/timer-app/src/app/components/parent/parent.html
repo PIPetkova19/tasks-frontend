@@ -1,13 +1,17 @@
-  <button (click)="show.set(!show())">
-      {{ show() ? 'Destroy Timer' : 'Create Timer' }}
-    </button>
+<section>
+  <h1>Exercise 11 — Lifecycle Hooks Sequence</h1>
+  <button (click)="show.set(!show())" matButton="elevated">
+    {{ show() ? 'Destroy Timer' : 'Create Timer' }}
+  </button>
 
-    <div>
-      <label for="intervalMs">Interval (ms): </label>
-      <input type="number" id="intervalMs" [(ngModel)]="intervalMs" min="100" step="100" />
-    </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Interval (ms):</mat-label>
+      <input matInput type="number" id="intervalMs" [(ngModel)]="intervalMs" min="100" step="100">
+    </mat-form-field>
+  </div>
 
-    @if (show()) {
-      <app-timer [interval]="intervalMs"></app-timer>
-    }
- 
+  @if (show()) {
+  <app-timer [interval]="intervalMs"></app-timer>
+  }
+</section>
