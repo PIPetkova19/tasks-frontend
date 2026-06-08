@@ -1,11 +1,18 @@
-{{counter()}}
+<section>
 
+    <h1>Exercise 1 — Counter Component</h1>
+    {{counter()}}
 
-@if(counter()>=10){
-<p>Maximum reached</p>
-}
-<button (click)="increase()">+</button>
-<button (click)="decrease()">-</button>
-<button (click)="reset()">Reset</button>
+    @if(counter()>=10){
+    <p>Maximum reached</p>
+    }
 
-<p>Status: <strong>{{ status() }}</strong></p>
+    <div class="example-button-row">
+        <button (click)="increase()" matButton="elevated">+</button>
+        <button (click)="decrease()" matButton="elevated">-</button>
+        <button (click)="reset()" matButton="elevated">Reset</button>
+    </div>
+
+    <p>Status: <strong>{{ status() }}</strong></p>
+
+</section>
