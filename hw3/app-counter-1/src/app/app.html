@@ -1,12 +1,28 @@
 <nav>
-    <ul>
-        <li><a routerLink="counter">Task 1 and 2</a></li>
-        <li><a routerLink="student-list">Task 3</a></li>
-        <li><a routerLink="product-page">Task 4</a></li>
-        <li><a routerLink="registration-form">Task 5</a></li>
-        <li><a routerLink="list-people">Task 6</a></li>
 
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="counter">
+            Task 1 and 2
+        </button>
 
-    </ul>
+        <button mat-menu-item routerLink="student-list">
+            Task 3
+        </button>
+
+        <button mat-menu-item routerLink="product-page">
+            Task 4
+        </button>
+
+        <button mat-menu-item routerLink="registration-form">
+            Task 5
+        </button>
+
+        <button mat-menu-item routerLink="list-people">
+            Task 6
+        </button>
+
+    </mat-menu>
 </nav>
-<router-outlet />
+
+<router-outlet></router-outlet>

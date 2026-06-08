@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators, AbstractControl, ValidationErrors, FormGroup } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -18,7 +18,7 @@ export class AppRegistrationForm {
   userForm!: FormGroup;
   successMsg = '';
 
-  constructor(private formBuilder: FormBuilder) { }
+  private formBuilder = inject(FormBuilder);
 
   passwordMatch(ctrl: AbstractControl): ValidationErrors | null {
     const pw = ctrl.get('password')?.value;
