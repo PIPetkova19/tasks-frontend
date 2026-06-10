@@ -16,10 +16,10 @@ import {MatInputModule} from '@angular/material/input';
 export class LoginComponent {
   password: string = '';
   authService = inject(AuthService);
-  error = signal(false);
+  error = signal<boolean>(false);
   router = inject(Router);
 
-  onLogin() {
+  onLogin(): void {
     if (this.authService.login(this.password)) {
       this.router.navigate(['dashboard']);
     } else {

@@ -14,7 +14,7 @@ export class DashboardComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
 
-  logout() {
+  logout(): void {
     this.authService.logout();
     this.router.navigate(['login']);
   }

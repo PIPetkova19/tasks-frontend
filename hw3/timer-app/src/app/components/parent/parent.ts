@@ -14,6 +14,6 @@ import { MatInputModule } from '@angular/material/input';
 })
 
 export class ParentComponent {
-  show = signal(false);
-  intervalMs = 1000;
+  show = signal<boolean>(false);
+  intervalMs: number = 1000;
 }

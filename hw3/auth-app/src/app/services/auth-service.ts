@@ -6,7 +6,7 @@ import { signal } from '@angular/core';
 })
 
 export class AuthService {
-  isLoggedIn = signal(false);
+  isLoggedIn = signal<boolean>(false);
 
   login(password: string): boolean {
     if (password === 'angular123') {
