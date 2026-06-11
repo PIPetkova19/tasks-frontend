@@ -39,7 +39,7 @@ export class UserDirectoryComponent implements OnInit {
       )
     ]).pipe(
       map(([users, query]) => {
-        return users.filter(u => u.name.toLowerCase().includes((query ?? '').toLowerCase()))
+        return users.filter(u => u.name.toLowerCase().includes((query ?? '').toLowerCase())) //ako e null -''
       }
       )
     );
