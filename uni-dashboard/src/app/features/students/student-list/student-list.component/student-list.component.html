@@ -1,1 +1,82 @@
-<p>student-list.component works!</p>
+<div>
+    <mat-form-field>
+
+        <mat-label>Name</mat-label>
+        <input matInput [formControl]="nameControl">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Select</mat-label>
+        <mat-select [formControl]="statusControl">
+            <mat-option value="all">All</mat-option>
+            <mat-option value="Active">Active</mat-option>
+            <mat-option value="Inactive">Inactive</mat-option>
+            <mat-option value="Graduated">Graduated</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div class="count">
+        Total: {{ filteredStudents.length }} students
+    </div>
+
+</div>
+
+
+<div>
+    <table mat-table [dataSource]="filteredStudents" class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="major">
+            <th mat-header-cell *matHeaderCellDef> Major </th>
+            <td mat-cell *matCellDef="let element"> {{element.major}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="year">
+            <th mat-header-cell *matHeaderCellDef> Year </th>
+            <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="gpa">
+            <th mat-header-cell *matHeaderCellDef> GPA </th>
+            <td mat-cell *matCellDef="let element"> {{element.gpa}}
+                <mat-progress-bar [value]="element.gpa * 25"
+                    [color]="element.gpa >= 3.5 ? 'primary' : element.gpa >= 2.5 ? 'accent' : 'warn'">
+                </mat-progress-bar>
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status </th>
+            <td mat-cell *matCellDef="let element">
+                <mat-chip [color]="element.status === 'Active' ? 'primary'
+          : element.status === 'Graduated' ? 'accent'
+          : 'warn'">
+                    {{ element.status }}
+                </mat-chip>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button [routerLink]="['/students', element.id]">
+                    <mat-icon>visibility</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+</div>
