@@ -1,0 +1,46 @@
+.stats-card{
+display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  border-top: 5px solid;
+    max-width: 400px;
+}
+
+.students {
+  border-top-color: #2196f3;
+}
+
+.active {
+  border-top-color: #4caf50;
+}
+
+.gpa {
+  border-top-color: #ff9800; 
+}
+
+.graduated {
+  border-top-color: #9c27b0;
+}
+
+mat-card-header {
+  align-items: center;
+}
+
+mat-icon {
+  margin-right: 8px;
+}
+
+h1 {
+  margin: 16px 0 8px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.table-wrapper{
+    margin-top: 16px;
+  width: 100%;
+}
