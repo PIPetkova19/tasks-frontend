@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-student.model',
-  imports: [],
-  templateUrl: './student.model.html',
-  styleUrl: './student.model.css',
-})
-export class StudentModel {}
+export interface Student {
+  id:       number;
+  name:     string;
+  email:    string;
+  major:    string;
+  year:     1 | 2 | 3 | 4;
+  gpa:      number;       
+  status:   'Active' | 'Inactive' | 'Graduated';
+  enrolled: string[];      
+}

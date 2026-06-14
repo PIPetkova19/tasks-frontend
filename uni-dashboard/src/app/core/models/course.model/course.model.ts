@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-
-@Component({
-  selector: 'app-course.model',
-  imports: [],
-  templateUrl: './course.model.html',
-  styleUrl: './course.model.css',
-})
-export class CourseModel {}
+export interface Course {
+  code: string;
+  title: string;
+  instructor: string;
+  credits: number;
+  capacity: number;
+  enrolled: number;
+  department: string;
+}
