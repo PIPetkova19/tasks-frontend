@@ -3,7 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
   name: 'gpaGradePipe',
 })
-export class GpaGradePipePipe implements PipeTransform {
+export class GpaGradePipe implements PipeTransform {
   transform(value: number): string {
     if (value >= 3.7) { return 'A'; }
     else if (value >= 3.3) { return 'A-'; }

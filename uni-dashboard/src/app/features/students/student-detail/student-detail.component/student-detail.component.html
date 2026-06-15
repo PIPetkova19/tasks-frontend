@@ -1,1 +1,33 @@
-<p>student-detail.component works!</p>
+@if(!student){
+<p>Student not found</p>
+<a routerLink="/students"></a>
+}
+@else{
+
+<mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{student.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p> Email: {{student.email}} </p>
+        <p> Major: {{student.major}} </p>
+        <p> Year: {{student.year}} </p>
+        <p> Status: {{student.status}} </p>
+        <p> Gpa: {{student.gpa | gpaGradePipe}} </p>
+
+        <mat-chip-set>
+            @for (course of student.courses; track course) {
+            <mat-chip color="primary" selected>Primary</mat-chip>
+            }
+        </mat-chip-set>
+
+
+
+        <mat-progress-bar mode="determinate" [value]="(student.gpa / 4) * 100"></mat-progress-bar>
+    </mat-card-content>
+    <mat-card-actions>
+        <button matButton routerLink="/students">back</button>
+    </mat-card-actions>
+</mat-card>
+}
